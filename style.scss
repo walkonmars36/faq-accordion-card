@@ -21,6 +21,7 @@ body {
   background: linear-gradient(45deg, rgba(107, 99, 232, 1) 0%, rgba(171, 104, 233, 1) 100%);
   font-family: "Kumbh Sans", sans-serif;
   font-size: 0.75rem;
+  color: var(--text-dark-greyish-blue);
 }
 
 img {
@@ -52,6 +53,7 @@ img {
     text-align: center;
     font-size: 2rem;
     margin: 1rem 0;
+    color: var(--text-v-dark-desaturated-blue);
   }
 
   &__content {
@@ -68,16 +70,28 @@ img {
     font-weight: 400;
   }
 
+  &__fact-question:hover,
+  &__fact-question:focus,
+  &__fact-question:active {
+    color: var(--text-v-dark-desaturated-blue);
+    cursor: pointer;
+  }
+
   &__fact-answer {
+    display: none;
     width: 90%;
     margin-top: 1em;
   }
 
-  &__fact-flex {
+  &__fact-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+}
+
+.display-answer {
+  display: block;
 }
 
 /////////////////////////////////////////////

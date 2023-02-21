@@ -20,6 +20,7 @@ body {
   background: linear-gradient(45deg, rgb(107, 99, 232) 0%, rgb(171, 104, 233) 100%);
   font-family: "Kumbh Sans", sans-serif;
   font-size: 0.75rem;
+  color: var(--text-dark-greyish-blue);
 }
 
 img {
@@ -49,6 +50,7 @@ img {
   text-align: center;
   font-size: 2rem;
   margin: 1rem 0;
+  color: var(--text-v-dark-desaturated-blue);
 }
 .card__content {
   margin: 7rem 0 2rem;
@@ -61,14 +63,23 @@ img {
   font-size: 0.875rem;
   font-weight: 400;
 }
+.card__fact-question:hover, .card__fact-question:focus, .card__fact-question:active {
+  color: var(--text-v-dark-desaturated-blue);
+  cursor: pointer;
+}
 .card__fact-answer {
+  display: none;
   width: 90%;
   margin-top: 1em;
 }
-.card__fact-flex {
+.card__fact-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.display-answer {
+  display: block;
 }
 
 .attribution {

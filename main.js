@@ -8,15 +8,13 @@ function handleQuestionClick(e) {
   // remove active class from question and toggle-answer class from answer paragraph
   questions.forEach((question) => {
     question.classList.remove("active");
-    question.classList.remove("expanded");
-    question.nextElementSibling.classList.remove("display-answer");
+    question.nextElementSibling.style.maxHeight = null;
   });
 
   // then display selected answer
   if (!isActive) {
     question.classList.add("active");
-    question.classList.add("expanded");
-    answer.classList.add("display-answer");
+    answer.style.maxHeight = answer.scrollHeight + "rem";
   }
 }
 

@@ -88,10 +88,18 @@ img {
     justify-content: space-between;
     align-items: center;
   }
+
+  &__fact-section.expanded .arrow {
+    transform: rotate(180deg);
+  }
 }
 
 .display-answer {
   display: block;
+}
+
+.arrow {
+  transition: transform 0.3s ease-in-out;
 }
 
 /////////////////////////////////////////////

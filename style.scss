@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+:root {
+  --text-v-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --text-soft-red: hsl(14, 88%, 65%);
+  --text-v-dark-grey-blue: hsl(237, 12%, 33%);
+  --text-dark-greyish-blue: hsl(240, 6%, 50%);
+  --grad-soft-violet: hsl(273, 75%, 66%);
+  --grad-soft-blue: hsl(240, 73%, 65%);
+  --divider: hsl(240, 5%, 91%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(107, 99, 232);
+  background: linear-gradient(45deg, rgba(107, 99, 232, 1) 0%, rgba(171, 104, 233, 1) 100%);
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.card {
+  width: 90%;
+  margin: 10rem auto;
+  padding: 1.5em;
+  border-radius: 1.875rem;
+  background-color: white;
+  position: relative;
+
+  //   this is the div containing the image
+  &__image {
+    width: 15rem;
+    position: absolute;
+    top: -6.875rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url(./images/bg-pattern-mobile.svg) no-repeat;
+    background-position: 0 110px;
+    min-height: 220px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+
+  &__content {
+    margin: 7rem 0 2rem;
+  }
+
+  &__fact {
+    padding: 1.5em 0;
+    border-bottom: 2px solid var(--divider);
+  }
+
+  &__fact-question {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  &__fact-answer {
+    width: 90%;
+    margin-top: 1em;
+  }
+
+  &__fact-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/////////////////////////////////////////////
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

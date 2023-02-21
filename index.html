@@ -1,40 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | FAQ Accordion Card</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="stylesheet" href="style.css" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  How many team members can I invite?
-  You can invite up to 2 additional users on the Free plan. There is no limit on 
-  team members for the Premium plan.
+    <title>Frontend Mentor | FAQ Accordion Card</title>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card__image">
+        <img class="card__mobile-image" src="./images/illustration-woman-online-mobile.svg" alt="illustration-woman-viewing a giant computer screen" />
+      </div>
+      <div class="card__content">
+        <h1 class="card__title">FAQ</h1>
+        <div class="card__fact">
+          <div class="card__fact-flex">
+            <h2 class="card__fact-question">How many team members can I invite?</h2>
+            <img src="./images/icon-arrow-down.svg" alt="down arrow" />
+          </div>
+          <p class="card__fact-answer">You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.</p>
+        </div>
 
-  What is the maximum file upload size?
-  No more than 2GB. All files in your account must fit your allotted storage space.
+        <div class="card__fact">
+          <div class="card__fact-flex">
+            <h2 class="card__fact-question">What is the maximum file upload size?</h2>
+            <img src="./images/icon-arrow-down.svg" alt="down arrow" />
+          </div>
 
-  How do I reset my password?
-  Click “Forgot password” from the login page or “Change password” from your profile page.
-  A reset link will be emailed to you.
+          <p class="card__fact-answer">No more than 2GB. All files in your account must fit your allotted storage space.</p>
+        </div>
 
-  Can I cancel my subscription?
-  Yes! Send us a message and we’ll process your request no questions asked.
+        <div class="card__fact">
+          <div class="card__fact-flex">
+            <h2 class="card__fact-question">How do I reset my password?</h2>
+            <img src="./images/icon-arrow-down.svg" alt="down arrow" />
+          </div>
 
-  Do you provide additional support?
-  Chat and email support is available 24/7. Phone lines are open during normal business hours.
+          <p class="card__fact-answer">Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.</p>
+        </div>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        <div class="card__fact">
+          <div class="card__fact-flex">
+            <h2 class="card__fact-question">Can I cancel my subscription?</h2>
+            <img src="./images/icon-arrow-down.svg" alt="down arrow" />
+          </div>
+          <p class="card__fact-answer">Yes! Send us a message and we’ll process your request no questions asked.</p>
+        </div>
+
+        <div class="card__fact">
+          <div class="card__fact-flex">
+            <h2 class="card__fact-question">Do you provide additional support?</h2>
+            <img src="./images/icon-arrow-down.svg" alt="down arrow" />
+          </div>
+          <p class="card__fact-answer">Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="attribution"> Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>. </div>
+
+    <script src="main.js"></script>
+  </body>
 </html>

@@ -21,22 +21,30 @@ body {
   font-family: "Kumbh Sans", sans-serif;
   font-size: 0.75rem;
   color: var(--text-dark-greyish-blue);
+  width: 100%;
+  height: 100vh;
+  margin: auto;
 }
 
 img {
   display: block;
-  max-width: 100%;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
 }
 
 .card {
   width: 90%;
+  max-width: 900px;
   margin: 10rem auto;
   padding: 1.5em;
   border-radius: 1.875rem;
   background-color: white;
   position: relative;
 }
-.card__image {
+.card__image-mob {
   width: 15rem;
   position: absolute;
   top: -6.875rem;
@@ -63,16 +71,19 @@ img {
   font-size: 0.875rem;
   font-weight: 400;
 }
-.card__fact-question:hover, .card__fact-question:focus, .card__fact-question:active {
+.card__fact-question:hover, .card__fact-question:focus {
   color: var(--text-v-dark-desaturated-blue);
   cursor: pointer;
+}
+.card__fact-question:active {
+  color: var(--text-soft-red);
 }
 .card__fact-answer {
   width: 90%;
   margin-top: 1em;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.3s ease;
 }
 .card__fact-section {
   display: flex;
@@ -90,6 +101,63 @@ img {
   transition: transform 0.3s ease-in-out;
 }
 
+/* 
+
+MEDIA QUERIES
+
+*/
+@media (min-width: 768px) {
+  .card {
+    min-height: 500px;
+  }
+  .card__image-mob {
+    display: none;
+  }
+  .card__desktop-layout {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .card__desktop-right {
+    width: 50%;
+    padding: 2em;
+  }
+  .card__desktop-images {
+    position: absolute;
+    height: 100%;
+    width: 45%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+  .card__desktop-background {
+    position: absolute;
+    left: -575px;
+    top: -300px;
+  }
+  .card__desktop-illustration {
+    position: absolute;
+    top: 55px;
+    left: -80px;
+    z-index: 2;
+  }
+  .card__box {
+    position: absolute;
+    left: -92px;
+    top: 187px;
+    z-index: 3;
+  }
+  .card__content {
+    margin: 0;
+  }
+  .card__title {
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+  .card__fact {
+    padding: 1em 0;
+  }
+}
 .attribution {
   font-size: 11px;
   text-align: center;

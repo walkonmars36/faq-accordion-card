@@ -1,13 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 
 :root {
-  --text-v-dark-desaturated-blue: hsl(238, 29%, 16%);
+  // colours
+  --text-v-dark-desaturated-blue: hsl(238, 29%, 17%);
   --text-soft-red: hsl(14, 88%, 65%);
   --text-v-dark-grey-blue: hsl(237, 12%, 33%);
   --text-dark-greyish-blue: hsl(240, 6%, 50%);
   --grad-soft-violet: hsl(273, 75%, 66%);
   --grad-soft-blue: hsl(240, 73%, 65%);
   --divider: hsl(240, 5%, 91%);
+  // font-sizes ---
+  // paragraphs
+  --font-size-min: 0.75rem;
+  --font-width: 1.75vw;
+  --font-size-large: 0.875rem;
+  --line-height: 1.125rem;
 }
 
 * {
@@ -20,11 +27,16 @@ body {
   background: rgb(107, 99, 232);
   background: linear-gradient(45deg, rgba(107, 99, 232, 1) 0%, rgba(171, 104, 233, 1) 100%);
   font-family: "Kumbh Sans", sans-serif;
-  font-size: 0.75rem;
+
   color: var(--text-dark-greyish-blue);
   width: 100%;
   height: 100vh;
   margin: auto;
+}
+
+p {
+  font-size: clamp(var(--font-size-min), var(--font-width), var(--font-size-large));
+  line-height: var(--line-height);
 }
 
 img {
@@ -37,13 +49,21 @@ svg {
 }
 
 .card {
-  width: 90%;
-  max-width: 900px;
+  width: min(920px, 90%);
   margin: 10rem auto;
   padding: 1.5em;
   border-radius: 1.875rem;
   background-color: white;
   position: relative;
+
+  // desktop images
+  &__desktop-images {
+    display: none;
+  }
+
+  &__box {
+    display: none;
+  }
 
   //   this is the div containing the image
   &__image-mob {
@@ -59,7 +79,6 @@ svg {
 
   &__title {
     text-align: center;
-    font-size: 2rem;
     margin: 1rem 0;
     color: var(--text-v-dark-desaturated-blue);
   }
@@ -74,45 +93,47 @@ svg {
   }
 
   &__fact-question {
-    font-size: 0.875rem;
+    font-size: var(--font-size-large);
     font-weight: 400;
   }
 
   &__fact-question:hover,
   &__fact-question:focus {
-    color: var(--text-v-dark-desaturated-blue);
-    cursor: pointer;
-  }
-
-  &__fact-question:active {
     color: var(--text-soft-red);
-  }
-
-  &__fact-answer {
-    width: 90%;
-    margin-top: 1em;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
   }
 
   &__fact-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-height: 45rem;
   }
 
-  &__fact-section.active .arrow {
+  &__fact-section:hover,
+  &__fact-section:focus {
+    cursor: pointer;
+  }
+
+  &__fact-section[aria-expanded="true"] &__fact-question {
+    color: var(--text-v-dark-desaturated-blue);
+    font-weight: 700;
+  }
+
+  &__fact-section[aria-expanded="true"] .arrow {
     transform: rotate(180deg);
   }
 
-  &__fact-section.active.fact-answer {
-    max-height: 10rem;
+  &__fact-answer {
+    width: 90%;
+    max-height: 0;
+    overflow: hidden;
   }
 }
 
 .arrow {
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s;
 }
 
 /////////////////////////////////////////////
@@ -123,10 +144,8 @@ MEDIA QUERIES
 
 */
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .card {
-    min-height: 500px;
-
     &__image-mob {
       display: none;
     }
@@ -134,12 +153,11 @@ MEDIA QUERIES
     &__desktop-layout {
       display: flex;
       justify-content: space-between;
-      gap: 10px;
+      padding-bottom: 2em;
     }
 
     &__desktop-right {
       width: 50%;
-
       padding: 2em;
     }
 
@@ -153,22 +171,24 @@ MEDIA QUERIES
     }
 
     &__desktop-background {
+      display: block;
       position: absolute;
-
       left: -575px;
       top: -300px;
     }
 
     // illustration
     &__desktop-illustration {
+      display: block;
       position: absolute;
-      top: 55px;
+      top: 70px;
       left: -80px;
       z-index: 2;
     }
 
     // box image
     &__box {
+      display: block;
       position: absolute;
       left: -92px;
       top: 187px;

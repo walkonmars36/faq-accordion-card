@@ -1,12 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 :root {
-  --text-v-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --text-v-dark-desaturated-blue: hsl(238, 29%, 17%);
   --text-soft-red: hsl(14, 88%, 65%);
   --text-v-dark-grey-blue: hsl(237, 12%, 33%);
   --text-dark-greyish-blue: hsl(240, 6%, 50%);
   --grad-soft-violet: hsl(273, 75%, 66%);
   --grad-soft-blue: hsl(240, 73%, 65%);
   --divider: hsl(240, 5%, 91%);
+  --font-size-min: 0.75rem;
+  --font-width: 1.75vw;
+  --font-size-large: 0.875rem;
+  --line-height: 1.125rem;
 }
 
 * {
@@ -19,11 +23,15 @@ body {
   background: rgb(107, 99, 232);
   background: linear-gradient(45deg, rgb(107, 99, 232) 0%, rgb(171, 104, 233) 100%);
   font-family: "Kumbh Sans", sans-serif;
-  font-size: 0.75rem;
   color: var(--text-dark-greyish-blue);
   width: 100%;
   height: 100vh;
   margin: auto;
+}
+
+p {
+  font-size: clamp(var(--font-size-min), var(--font-width), var(--font-size-large));
+  line-height: var(--line-height);
 }
 
 img {
@@ -36,13 +44,18 @@ svg {
 }
 
 .card {
-  width: 90%;
-  max-width: 900px;
+  width: min(920px, 90%);
   margin: 10rem auto;
   padding: 1.5em;
   border-radius: 1.875rem;
   background-color: white;
   position: relative;
+}
+.card__desktop-images {
+  display: none;
+}
+.card__box {
+  display: none;
 }
 .card__image-mob {
   width: 15rem;
@@ -56,7 +69,6 @@ svg {
 }
 .card__title {
   text-align: center;
-  font-size: 2rem;
   margin: 1rem 0;
   color: var(--text-v-dark-desaturated-blue);
 }
@@ -68,37 +80,38 @@ svg {
   border-bottom: 2px solid var(--divider);
 }
 .card__fact-question {
-  font-size: 0.875rem;
+  font-size: var(--font-size-large);
   font-weight: 400;
 }
 .card__fact-question:hover, .card__fact-question:focus {
-  color: var(--text-v-dark-desaturated-blue);
-  cursor: pointer;
-}
-.card__fact-question:active {
   color: var(--text-soft-red);
-}
-.card__fact-answer {
-  width: 90%;
-  margin-top: 1em;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
 }
 .card__fact-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-height: 45rem;
 }
-.card__fact-section.active .arrow {
+.card__fact-section:hover, .card__fact-section:focus {
+  cursor: pointer;
+}
+.card__fact-section[aria-expanded=true] .card__fact-question {
+  color: var(--text-v-dark-desaturated-blue);
+  font-weight: 700;
+}
+.card__fact-section[aria-expanded=true] .arrow {
   transform: rotate(180deg);
 }
-.card__fact-section.active.fact-answer {
-  max-height: 10rem;
+.card__fact-answer {
+  width: 90%;
+  max-height: 0;
+  overflow: hidden;
 }
 
 .arrow {
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s;
 }
 
 /* 
@@ -106,17 +119,14 @@ svg {
 MEDIA QUERIES
 
 */
-@media (min-width: 768px) {
-  .card {
-    min-height: 500px;
-  }
+@media (min-width: 900px) {
   .card__image-mob {
     display: none;
   }
   .card__desktop-layout {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    padding-bottom: 2em;
   }
   .card__desktop-right {
     width: 50%;
@@ -131,17 +141,20 @@ MEDIA QUERIES
     overflow: hidden;
   }
   .card__desktop-background {
+    display: block;
     position: absolute;
     left: -575px;
     top: -300px;
   }
   .card__desktop-illustration {
+    display: block;
     position: absolute;
-    top: 55px;
+    top: 70px;
     left: -80px;
     z-index: 2;
   }
   .card__box {
+    display: block;
     position: absolute;
     left: -92px;
     top: 187px;
